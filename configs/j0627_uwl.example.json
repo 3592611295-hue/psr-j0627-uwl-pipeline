@@ -1,0 +1,113 @@
+{
+  "schema_version": 1,
+  "project": {
+    "source": "PSR J0627+0706",
+    "telescope_backend": "Parkes/UWL",
+    "result_scope": "candidate evidence; not a standalone confirmation of radiative mode changing"
+  },
+  "archive": {
+    "expected_nbin": 1024,
+    "template": "/mnt/data/templates/uwl_220604_024229.FTp",
+    "keep_original_subintegrations": true,
+    "keep_full_stokes_zap": true,
+    "automatic_zap_args": [
+      "-r"
+    ],
+    "plot_failures_are_fatal": false
+  },
+  "phase_windows": {
+    "coordinate_system": "template bins; Python half-open [start, end) endpoints",
+    "mp": [
+      465,
+      525
+    ],
+    "ip_test": [
+      970,
+      30
+    ],
+    "off_primary": [
+      650,
+      800
+    ],
+    "off_control": [
+      100,
+      250
+    ],
+    "windows_frozen_before_candidate_analysis": true,
+    "ip_label": "candidate-IP test window; requires external physical justification"
+  },
+  "subbands": {
+    "counts": [
+      4,
+      8,
+      16
+    ],
+    "classification_count": 4,
+    "full_band_mhz": [
+      704.0,
+      4032.0
+    ],
+    "band_tolerance_mhz": 1.0,
+    "four_edges_mhz": [
+      704.0,
+      1536.0,
+      2368.0,
+      3200.0,
+      4032.0
+    ],
+    "reference_band_index": null,
+    "reference_band_rule": "freeze from valid-channel fraction and off-pulse RMS only; never from MP separation or IP response",
+    "explicit_dedispersion_required": true,
+    "raw_channel_pooling_forbidden": true
+  },
+  "thresholds": {
+    "template_min_correlation": 0.3,
+    "fullband_state_snr": {
+      "low_snr": 3.0,
+      "weak": 5.0,
+      "strong": 8.0
+    },
+    "dual_off": {
+      "detection_snr": 3.0,
+      "strong_snr": 5.0,
+      "max_snr_delta": 5.0,
+      "max_rms_ratio": 2.0,
+      "off_control_abs_snr_max": 3.0
+    },
+    "candidate": {
+      "subband_detect_snr": 3.0,
+      "subband_strong_snr": 5.0,
+      "four_band_full": 4,
+      "four_band_likely": 3
+    }
+  },
+  "external_classifier": {
+    "enabled": false,
+    "feature": "reference-band MP S/N",
+    "minimum_training_rows": 30,
+    "minimum_training_observations": 3,
+    "minimum_delta_bic": 10.0,
+    "minimum_component_separation": 1.5,
+    "minimum_component_weight": 0.1,
+    "hard_high_probability": 0.8,
+    "hard_low_probability": 0.2,
+    "leave_target_observation_out": true,
+    "single_file_median_split_forbidden": true,
+    "hmm_enabled": false
+  },
+  "known_event_annotations": {
+    "uwl_241215_133711": {
+      "analysis_role": "high_frequency_limited_review",
+      "exclude_from_broadband_pool": true,
+      "note": "Keep separate unless an explicitly dedispersed multi-band analysis demonstrates full-UWL coherence; never promote a full-band peak alone."
+    }
+  },
+  "reporting": {
+    "relative_energy_label": "template-aligned relative pulse energy (arbitrary units; not mJy)",
+    "candidate_tiers": {
+      "A": "four dedispersed subbands robustly positive with stable dual-off QC",
+      "B": "three subbands coherent or otherwise likely broadband",
+      "C": "frequency-selective, high-frequency-limited, background-sensitive, or inconsistent"
+    }
+  }
+}
