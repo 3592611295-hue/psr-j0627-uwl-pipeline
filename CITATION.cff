@@ -1,0 +1,21 @@
+cff-version: 1.2.0
+message: "If you use this pipeline, cite this repository and the PSRCHIVE software paper."
+title: "PSR J0627+0706 Parkes/UWL processing pipeline"
+version: 0.1.0
+date-released: 2026-09-06
+license: MIT
+type: software
+authors:
+  - name: "PSR J0627+0706 analysis team"
+references:
+  - type: article
+    title: "PSRCHIVE and PSRFITS: An Open Approach to Radio Pulsar Data Storage and Analysis"
+    authors:
+      - family-names: "van Straten"
+        given-names: "Willem"
+      - family-names: "Demorest"
+        given-names: "Paul"
+      - family-names: "Oslowski"
+        given-names: "Stefan"
+    year: 2012
+    doi: "10.1017/PASA.2012.018"
